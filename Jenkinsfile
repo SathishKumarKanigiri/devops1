@@ -10,7 +10,7 @@ pipeline {
         stage('Bye') {
             steps {
                 echo 'Good Bye'
-                echo "test webhook trigger"
+                echo "test webhook trigger by disabling the pipeline job"
             }
         }
     }
