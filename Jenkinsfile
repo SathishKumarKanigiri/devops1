@@ -10,6 +10,7 @@ pipeline {
         stage('Bye') {
             steps {
                 echo 'Good Bye'
+                echo "test webhook trigger"
             }
         }
     }
