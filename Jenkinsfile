@@ -8,6 +8,11 @@ pipeline {
             }
         }
         stage('Build & Sonar') {
+            when {
+                expression {
+                    return params.build == true
+                }
+            }
             parallel {
                 stage('Build') {
             steps {
