@@ -7,7 +7,9 @@ pipeline {
                 sh 'sleep 30'
             }
         }
-        stage('Build') {
+        stage('Build & Sonar') {
+            parallel {
+                stage('Build') {
             steps {
                 sh 'sleep 50'
             }
@@ -17,7 +19,11 @@ pipeline {
                 sh 'sleep 20'
             }
         }
-        stage('Deployment') {
+            }
+        }
+        stage('Deployment & Security Scans') {
+            parallel {
+                stage('Deployment') {
             steps {
                 sh 'sleep 10'
             }
@@ -27,7 +33,11 @@ pipeline {
                 sh 'sleep 30'
             }
         }
-        stage('Performance Scans') {
+            }
+        }
+        stage('Performance & Functional') {
+            parallel {
+                stage('Performance Scans') {
             steps {
                 sh 'sleep 20'
             }
@@ -35,6 +45,8 @@ pipeline {
         stage('Functional testing') {
             steps {
                 sh 'sleep 10'
+            }
+        }
             }
         }
     }
