@@ -2,29 +2,39 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Checkout') {
             steps {
-                echo 'Hello World'
+                sh 'sleep 30'
             }
         }
-        stage('Bye') {
+        stage('Build') {
             steps {
-                echo 'Good Bye'
-                echo "test webhook trigger by disabling the pipeline job"
+                sh 'sleep 50'
             }
         }
-        stage('parellel') {
-            parallel {
-                stage('one') {
-                    steps {
-                        echo "This is first parallel stage"
-                    }
-                }
-                stage('two') {
-                    steps {
-                        echo "This is second parallel stage"
-                    }
-                }
+        stage('Sonar') {
+            steps {
+                sh 'sleep 20'
+            }
+        }
+        stage('Deployment') {
+            steps {
+                sh 'sleep 10'
+            }
+        }
+        stage('Security Scans') {
+            steps {
+                sh 'sleep 30'
+            }
+        }
+        stage('Performance Scans') {
+            steps {
+                sh 'sleep 20'
+            }
+        }
+        stage('Functional testing') {
+            steps {
+                sh 'sleep 10'
             }
         }
     }
