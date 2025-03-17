@@ -3,11 +3,13 @@ pipeline {
     options {
         timestamps()
     }
-    timestamps {
+    
     stages {
         stage('Checkout') {
+            timestamps {
             steps {
                 sh 'sleep 30'
+            }
             }
         }
         stage('Build & Sonar') {
@@ -57,6 +59,5 @@ pipeline {
         }
             }
         }
-    }
     }
 }
