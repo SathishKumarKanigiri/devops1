@@ -3,7 +3,7 @@ pipeline {
     options {
         timestamps()
     }
-
+    timestamps {
     stages {
         stage('Checkout') {
             steps {
@@ -57,5 +57,6 @@ pipeline {
         }
             }
         }
+    }
     }
 }
