@@ -1,15 +1,14 @@
 pipeline {
     agent any
+
     options {
-        timestamps()
+        timestamp()
     }
     
     stages {
         stage('Checkout') {
-            timestamps {
             steps {
                 sh 'sleep 30'
-            }
             }
         }
         stage('Build & Sonar') {
